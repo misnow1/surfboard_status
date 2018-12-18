@@ -1,6 +1,7 @@
 """A DOCSIS Channel"""
 
 from enum import Enum
+from surfboard_status.modems.utils import ValueWithUnits
 
 
 class DocsisChannelStatus(Enum):
@@ -18,8 +19,8 @@ class DocsisChannel(object):
         self.channel = channel
         self.lock_status = lock_status
         self.channel_id = channel_id
-        self.frequency = frequency
-        self.power = power
+        self.frequency = ValueWithUnits(frequency)
+        self.power = ValueWithUnits(power)
         self.direction = None
 
     def __repr__(self):
@@ -30,9 +31,9 @@ class DocsisChannel(object):
             'channel': self.channel,
             'lock_status': self.lock_status,
             'channel_id': self.channel_id,
-            'frequency': self.frequency,
-            'power': self.power,
-            'direction': self.direction
+            'frequency': self.frequency.to_json(),
+            'power': self.power.to_json(),
+            'direction': str(self.direction)
         }
 
 
@@ -42,14 +43,29 @@ class DownstreamDocsisChannel(DocsisChannel):
         super(DownstreamDocsisChannel, self).__init__(channel, lock_status, channel_id, frequency, power)
         self.direction = DocsisChannelDirection.DOWNSTREAM
         self.modulation = modulation
-        self.snr = snr
+        self.snr = ValueWithUnits(snr)
         self.corrected = corrected
         self.uncorrected = uncorrected
+
+    def data(self):
+        data = {
+            'channel': self.channel,
+            'lock_status': self.lock_status,
+            'channel_id': self.channel_id,
+            'frequency': self.frequency,
+            'power': self.power,
+            'direction': str(self.direction),
+            'modulation': self.modulation,
+            'snr': self.snr,
+            'corrected': self.corrected,
+            'uncorrected': self.uncorrected
+        }
+        return data
 
     def to_json(self):
         data = super(DownstreamDocsisChannel, self).to_json()
         data['modulation'] = self.modulation
-        data['snr'] = self.snr
+        data['snr'] = self.snr.to_json()
         data['corrected'] = self.corrected
         data['uncorrected'] = self.uncorrected
         return data
@@ -61,10 +77,23 @@ class UpstreamDocsisChannel(DocsisChannel):
         super(UpstreamDocsisChannel, self).__init__(channel, lock_status, channel_id, frequency, power)
         self.direction = DocsisChannelDirection.UPSTREAM
         self.channel_type = channel_type
-        self.symbol_rate = symbol_rate
+        self.symbol_rate = ValueWithUnits(symbol_rate)
+
+    def data(self):
+        data = {
+            'channel': self.channel,
+            'lock_status': self.lock_status,
+            'channel_id': self.channel_id,
+            'frequency': self.frequency,
+            'power': self.power,
+            'direction': str(self.direction),
+            'channel_type': self.channel_type,
+            'symbol_rate': self.symbol_rate
+        }
+        return data
 
     def to_json(self):
         data = super(UpstreamDocsisChannel, self).to_json()
         data['channel_type'] = self.channel_type
-        data['symbol_rate'] = self.symbol_rate
+        data['symbol_rate'] = self.symbol_rate.to_json()
         return data

@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> Product Information </title>
+<meta charset="utf-8">
+<!-- Temp disable <meta name="viewport" content="width=device-width"> -->
+<script src="/jquery-1.7.1.min.js"></script>
+<script src="/main.js"></script>
+<!-- START HTMLHEADER.HTML ADDITIONS -->
+
+	<!-- typography -->
+	<link href="/styles.css" rel="stylesheet">
+	<!-- layout -->
+	<link href="/styles_layout.css" rel="stylesheet">
+	<!-- images and colors -->
+	<link id="pictures_css" href="/styles_images.css" rel="stylesheet">
+
+ <!-- END HTMLHEADER ADDITIONS -->
+</head>
+<body onload="load()">
+
+	<!-- Header Area Begin -->
+<div class="header">
+<!-- START pageheaderA.htm -->
+
+    <!-- modal overlay semi-opaque background, black -->
+    <div id="modalUnderlayBlack" class="modalUnderlayBlack modalDisplayBlack" style="display:none;"></div>
+
+     <!-- modal overlay semi-opaque background, white -->
+    <div id="modalUnderlayWhite" class="modalUnderlayWhite modalDisplayWhite" style="display:none;"></div>
+
+
+    <!-- MESSAGE MODAL -->
+    <!-- floater w/shadow background -->
+    <div id="modalFloaterMessage" class="modalDisplayBlack modalDisplayWhite" style="display:none;"></div>
+
+    <!-- floater inset container -->
+    <div id="modalContainerMessage" class="modalDisplayBlack modalDisplayWhite" style="display:none;">
+        <div id="modalContainerMessageTitle">
+			<span class="modalContainerMessageTitleText" id="modalContainerMessageTitleText">Confirm Settings</span>
+		</div>
+        <div id="modalContainerMessageAlert" class="vertCenterWrap1">
+			<div class="vertCenterWrap2">
+				<div class="vertCenterWrap3">
+		            <div class="modalContainerMessageAlertText" id="modalContainerMessageAlertText"></div>
+        		    <div class="modalContainerMessageAlertText" id="modalContainerMessageAlertTextPrompt"><strong>Do you want to continue?</strong></div>
+		            <div class="modalContainerMessageAlertButtons">
+						<input type="button"
+								class="modalButton"
+								id="modalButtonYes"
+								value="Disable WPS and Continue">
+						<input type="button"
+								class="modalButton"
+								id="modalButtonNo"
+								value="Cancel">
+					</div>
+		        </div>
+			</div>
+		</div>
+        <div id="modalContainerMessageAlertImage"><img src="/px1_Ux.png" alt="" class="wizardFrameSpriteImage_12"></div>
+  	</div>
+    <!-- END MESSAGE MODAL -->
+
+    <div id="pw1"><div id="pw2"><div id="pw3"><div id="pw4">
+
+		<div id="hg1"><div id="hg2"><div id="hg3"><div id="hg4"><div id="hg5"><div id="hg6"><div id="hg7">
+
+            <div id="logo"><a href="http://www.arris.com"><img src="/px1_Ux.png" alt="ARRIS Logo" title="ARRIS Logo" class="logo"></a></div>
+
+			<div id="binnacleWrapper1" class="binnacleItems_hide" style="display:none;">
+                <div id="binnacleWrapper2" class="binnacleItems_hide" style="display:none;">
+                    <div id="binnacleWrapperLeft"><img src="/px1_Ux.png" alt="" class="binnacleWrapperShim"></div>
+                    <div id="binnacleWrapperRight"><img src="/px1_Ux.png" alt="" class="binnacleWrapperShim"></div>
+                    <div id="binnacleWrapperMiddle">
+                        <div id="binnacleInnards">
+			<div id="binnacleIndicatorWrap"></div>
+                            <div id="binnacleModelName"><span id="thisModelNumberIs"> SB6190 </span></div>
+                        </div>
+                    </div>
+                <!-- end binnacleWrapper1/2 -->
+				</div>
+			</div>
+
+		<!-- end divs for hg -->
+		</div></div></div></div></div></div></div>
+
+		<!--gap--><div id="tmtg"><div class="gap1"><div class="gap2"><div class="gap3"><div class="gap4"></div></div></div></div></div>
+
+		<div id="tmg1"><div id="tmg2"><div id="tmg3"><div id="tmg4"><div id="tmg5"><div id="tmg6">
+<!-- END pageheaderA.htm ADDITIONS -->
+		<script>
+			$(document).ready(function(){
+
+			// Strip the default values.
+			$("#binnacleWrapper1").removeClass("binnacleItems_0");
+			$("#binnacleWrapper2").removeClass("binnacleItems_0");
+			// Set number of items in binnacle (0 to 8)
+			$("#binnacleWrapper1").addClass("binnacleItems_0");
+			$("#binnacleWrapper2").addClass("binnacleItems_0");
+			// Show the binnacle.
+			$("#binnacleWrapper1").show();
+			$("#binnacleWrapper2").show();
+
+			});
+			// End READY functon
+		</script>
+
+<!-- END pageheaderA.htm -->
+<!-- ARRIS MENU Start-->
+<script language="javascript" type="text/javascript">
+var hiddenMenuList = '';
+</script>
+<div id="topMenu">
+</div>
+<script type='text/javascript'>
+
+        var menuItem = [
+                {name:'STATUS', subMenu: [
+                        {name:'null',
+                         linkUrl:'status',
+                         menuID:'menu3e'}
+                ]},
+                {name:'PRODUCT INFORMATION', subMenu: [
+                        {name:'null',
+                         linkUrl:'swinfo',
+                         menuID:'menu21'}
+                ]},
+                {name:'EVENT LOG', subMenu: [
+                        {name:'null',
+                         linkUrl:'eventlog',
+                         menuID:'menu43'}
+                ]},
+                {name:'ADDRESSES', subMenu: [
+                        {name:'null',
+                         linkUrl:'cmaddress',
+                         menuID:'menuff'}
+                ]},
+                {name:'CONFIGURATION', subMenu: [
+                        {name:'null',
+                         linkUrl:'configuration',
+                         menuID:'menu39'}
+                ]},
+                {name:'HELP', subMenu: [
+                        {name:'null',
+                         linkUrl:'statushelp',
+                         menuID:'menu9d'}
+                ]}
+        ];
+
+</script>
+<!-- ARRIS MENU End -->
+
+<!-- START pageheaderB.htm -->
+
+<!-- START pageheaderB.htm ADDITIONS -->
+		<!-- end divs for tmg -->
+		</div></div></div></div></div></div>
+
+		<!--gap--><div id="tmbg"><div class="gap1"><div class="gap2"><div class="gap3"><div class="gap4"></div></div></div></div></div>
+
+		<div id="bg1"><div id="bg2"><div id="bg3"><div id="bg4">
+<!-- END pageheaderB.htm ADDITIONS -->
+
+<!-- END pageheaderB.htm -->
+</div> <!-- End Header -->
+
+<div class="container">
+	<div class="subHeader">
+		<div class="subHeadcontent">Product Information</div>
+	</div>
+<div class="breadcrumbs"> <a href="home.htm"> Home</a> > <a href="swinfo.htm">Status</a> > Product Information </div>
+
+	<div class="content">
+    		<div class="introText">
+			<p>The information below describes the current state and status of different cable modem elements.</p>
+    	</div>
+
+	<table class="simpleTable">
+		<tr>
+        	<th colspan="2" >Information</th>
+        	</tr>
+		<tr colspan="2">
+        	<td width="60%"><strong>Standard Specification Compliant</strong></td>
+    		<td width="40%">ARRIS DOCSIS 3.0 Cable Modem / Retail</td>
+		</tr>
+		<tr colspan="2">
+        	<td><strong>Hardware Version</strong></td>
+    		<td >3</td>
+		</tr>
+		<tr>
+        	<td><strong>Software Version</strong></td>
+    		<td >9.1.103AA45</td>
+		</tr>
+		<tr>
+        	<td ><strong>Cable Modem MAC Address</strong></td>
+    		<td>2C:7E:81:2B:A6:4D</td>
+		</tr>
+		<tr>
+        	<td><strong>Serial Number</strong></td>
+    		<td>7213X6338303817</td>
+		</tr>
+
+	</table>
+
+    <br clear="all" class="clearfloat">
+	<div class="spacer30"></div>
+
+	<table class="simpleTable">
+		<tr>
+        	<th colspan="2">Status</th>
+        	</tr>
+
+		<tr>
+        	<td width="60%"><strong>Up Time</strong></td>
+    		<td width="40%">60 d:  5 h: 21  m</td>
+		</tr>
+	</table>
+    <br class="clearfloat" clear="all">
+        <div class="spacer30"></div>
+        <table class="simpleTable">
+		<tr>
+        	<th>Open Source Software Information</th>
+        	</tr>
+		<tr>
+        	<td>For information regarding software licenses, acknowledgments and copyright notices for certain software packages and/or components that are used in this SB6190, please see the <a href="../../OSS.htm">Open Source Software Information</a>.</td>
+		</tr>
+        </table>
+</div>
+
+<br clear="all" class="clearfloat">
+<div class="spacer40"></div>
+
+</div><!-- end container -->
+
+<!-- Footer and Sitemap -->
+
+<!-- START footer.htm ADDITIONS -->
+		<!-- end divs for bc -->
+		</div></div></div></div>
+
+		<!--gap--><div id="bmtg"><div class="gap1"><div class="gap2"><div class="gap3"><div class="gap4"></div></div></div></div></div>
+
+
+		<div id="bmg1"><div id="bmg2"><div id="bmg3"><div id="bmg4"><div id="bmg5"><div id="bmg6">
+
+	    <div id="siteMapBottom"></div>
+        <br clear="all" class="clearfloat">
+
+		</div></div></div></div></div></div>
+
+
+		<!--gap--><div id="bmbg"><div class="gap1"><div class="gap2"><div class="gap3"><div class="gap4"></div></div></div></div></div>
+
+
+		<div id="fg1"><div id="fg2"><div id="fg3"><div id="fg4"><div id="fg5"><div id="fg6"><div id="fg7">
+
+			<div id="logo_bottom"><a href="http://www.arris.com"><img src="/px1_Ux.png" alt="ARRIS" title="ARRIS" class="logo_bottom"></a></div>
+
+			<div id="copyright">
+			<a href="http://www.arris.com">&copy; 2015-2017 Arris Enterprises, LLC. ALL RIGHTS RESERVED.</a>
+			</div>
+
+		</div></div></div></div></div></div></div>
+
+
+		<div id="fgbl1"><div id="fgbl2"><div id="fgbl3"><div id="fgbl4"><img src="/px1_Ux.png" alt="" title="" class="fgbl3"></div></div></div></div>
+
+
+    <!-- end divs for pw -->
+    </div></div></div></div>
+
+<!-- END footer.htm ADDITIONS -->
+<script>
+
+function ShowNewWindow1()
+{
+	window.open("configuration.htm#connection","_blank", "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=500, height=500");
+}
+
+function load()
+{
+}
+
+</script>
+</body>
+</html>
