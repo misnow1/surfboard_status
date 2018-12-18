@@ -97,7 +97,16 @@ def main(ip_address, key, cache, cache_ttl, units, test_data, debug):
         logger.debug('Loading modem data from cache')
         modem.load_from_cache(cache_file=cache)
 
-    if key:
+    if key == 'modem.discovery':
+        # zabbix expects data in a strange format of a dict of a list of dicts
+        channel_data = [{'{#DOWNSTREAM_CHANNEL}': c.channel_id} for c in modem.downstream_channels]
+        channel_data.extend([{'{#UPSTREAM_CHANNEL}': c.channel_id} for c in modem.upstream_channels])
+        data = {
+            'data': channel_data
+        }
+        print(json.dumps(data, indent=4))
+
+    elif key:
         if '.' in key:
             key_parts = key.split('.')
         else:

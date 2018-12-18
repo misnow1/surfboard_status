@@ -118,7 +118,8 @@ class Modem(object):
             chn = UpstreamDocsisChannel(**channel_data)
             self.upstream_channels.append(chn)
         for k, v in data['info'].items():
-            setattr(self, k, v)
+            if k not in ('downstream_channel_count', 'upstream_channel_count'):
+                setattr(self, k, v)
 
     @property
     def upstream_channel_count(self):
